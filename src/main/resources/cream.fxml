@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      spacing="15" style="-fx-background-color: #f4f1ea; -fx-padding: 20;">
+
+    <MenuBar>
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="New"/>
+                    <MenuItem text="Open…"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Quit"/>
+                </items>
+            </Menu>
+            <Menu text="Options"/>
+            <Menu text="About"/>
+            <Menu text="Help"/>
+        </menus>
+    </MenuBar>
+
+    <Label text="Target URL (eg http://example.com:80/)" style="-fx-font-weight: bold;"/>
+    <TextField promptText="http://example.com"/>
+
+    <Separator/>
+
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Label text="Work Method"/>
+        <RadioButton text="Use GET requests only"/>
+        <RadioButton text="Auto Switch (HEAD and GET)" selected="true"/>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Number Of Threads"/>
+        <Slider min="1" max="50" value="10" prefWidth="200"/>
+        <Label text="10 Threads"/>
+        <CheckBox text="Go Faster"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Select scanning type:" style="-fx-font-weight: bold;"/>
+    <HBox spacing="20">
+        <RadioButton text="List based brute force" selected="true"/>
+        <RadioButton text="Pure Brute Force"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="File with list of dirs/files"/>
+        <TextField HBox.hgrow="ALWAYS"/>
+        <Button text="Browse"/>
+        <Button text="List Info"/>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Char set"/>
+        <ComboBox value="a-zA-Z0-9%20-_" prefWidth="150"/>
+        <Label text="Min length"/>
+        <TextField text="1" prefWidth="50"/>
+        <Label text="Max Length"/>
+        <TextField text="8" prefWidth="50"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Select starting options:" style="-fx-font-weight: bold;"/>
+    <HBox spacing="20">
+        <RadioButton text="Standard start point" selected="true"/>
+        <RadioButton text="URL Fuzz"/>
+    </HBox>
+
+    <GridPane hgap="15" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+        </columnConstraints>
+        <CheckBox text="Brute Force Dirs" selected="true" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <CheckBox text="Be Recursive" selected="true" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Dir to start with" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField text="/" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <CheckBox text="Brute Force Files" selected="true" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <CheckBox text="Use Blank Extension" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Label text="File extension" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField text="php" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <Label text="URL to fuzz - /test.html?url={dir}.asp"/>
+    <TextField/>
+
+    <Label text="Please complete the test details" style="-fx-text-fill: #666;"/>
+</VBox>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<TabPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="com.rsyncify.BackupController"
+         fx:id="tabPane"
+         tabClosingPolicy="UNAVAILABLE"
+         style="-fx-background-color: #f4f1ea;">
+
+    <tabs>
+        <Tab text="Setup" closable="false">
+            <StackPane fx:id="setupPane"/>
+        </Tab>
+        <Tab text="Transfer Progress" closable="false">
+            <StackPane fx:id="progressPane"/>
+        </Tab>
+    </tabs>
+</TabPane>

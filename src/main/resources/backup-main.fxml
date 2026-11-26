@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane style="-fx-background-color: #f4f1ea;" xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <menus>
+                    <Menu text="File">
+                        <items>
+				<MenuItem onAction="#newJob" text="New Job" />
+				<MenuItem text="Load Profile" />
+                            <SeparatorMenuItem />
+		    		<MenuItem onAction="#exitApp" text="Exit" />
+		    	</items>
+                    </Menu>
+                    <Menu text="History">
+			    <items>
+				    <MenuItem onAction="#viewHistory" text="View Past Jobs" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 18 28 4 28;" text="Rsyncify" />
+            <Label style="-fx-text-fill: #5c574e; -fx-padding: 0 28 16 28;" text="Configure a precise, reliable transfer" />
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: #f4f1ea; -fx-background-color: #f4f1ea;">
+            <VBox spacing="22" style="-fx-padding: 8 32 32 32;">
+
+                <!-- Paths -->
+                <VBox spacing="10">
+                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Locations" />
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label prefWidth="110" text="Source" />
+                        <TextField fx:id="sourceField" promptText="Select source directory" HBox.hgrow="ALWAYS" />
+                        <Button onAction="#browseSource" text="Browse" />
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label prefWidth="110" text="Destination" />
+                        <TextField fx:id="destField" promptText="Select destination directory" HBox.hgrow="ALWAYS" />
+                        <Button onAction="#browseDest" text="Browse" />
+                    </HBox>
+                </VBox>
+
+                <Separator />
+
+                <!-- Method + Transfer control side by side -->
+                <HBox spacing="40">
+                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Transfer Method" />
+                        <RadioButton fx:id="rsyncRadio" selected="true" text="rsync (recommended)" />
+                        <RadioButton fx:id="tarRadio" text="tar archive" />
+                        <CheckBox fx:id="deleteCheck" text="Remove extraneous files at destination" />
+                        <CheckBox fx:id="compressCheck" text="Create compressed archive" />
+                    </VBox>
+
+                    <VBox spacing="12" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Bandwidth Limit" />
+                        <Label style="-fx-text-fill: #666;" text="Limit transfer speed (KB/s)" />
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <Slider fx:id="bandwidthSlider" majorTickUnit="2500" max="10000" min="0" prefWidth="260" showTickLabels="true" showTickMarks="true" value="0" />
+                            <Label fx:id="bandwidthLabel" prefWidth="90" text="Unlimited" />
+                        </HBox>
+                        <Label style="-fx-font-size: 11px; -fx-text-fill: #888;" text="0 = unlimited" />
+                    </VBox>
+                </HBox>
+
+                <Separator />
+
+                <!-- Advanced options side by side -->
+                <HBox spacing="40">
+                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Integrity &amp; Safety" />
+                        <CheckBox selected="true" text="Preserve permissions and timestamps" />
+                        <CheckBox text="Verify checksums after transfer" />
+                        <CheckBox fx:id="dryRunCheck" text="Dry run (preview only)" />
+                        <CheckBox text="Skip files that are newer at destination" />
+                    </VBox>
+
+                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 15px; -fx-font-weight: bold;" text="Performance" />
+                        <CheckBox text="Show detailed progress" />
+                        <CheckBox text="Use partial transfers (resume support)" />
+                        <CheckBox text="Compress data during transfer" />
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label text="Parallelism" />
+                            <Spinner fx:id="parallelSpinner" editable="true" initialValue="4" max="16" min="1" prefWidth="80" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+
+                <HBox alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+                    <Button onAction="#startBackup" style="-fx-background-color: #e8e0d0; -fx-text-fill: #2c2825; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 11 28; -fx-background-radius: 6; -fx-border-color: #c9c0b0; -fx-border-radius: 6; -fx-cursor: hand;" text="Begin Transfer" />
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
