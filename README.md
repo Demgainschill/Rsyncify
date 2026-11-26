@@ -14,7 +14,7 @@
 </p>
 
 ---
-
+![Rsyncify Setup tab](docs/screenshots/setup.png)
 ## Table of contents
 
 - [About](#about)
