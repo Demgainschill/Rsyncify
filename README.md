@@ -233,7 +233,18 @@ When reporting a bug, please include your distribution, the output of `java -ver
 Rsyncify is free. If it saved you time, a tip is appreciated but never expected.
 
 <!-- donate:start -->
-_No donation address has been configured yet._
+<!-- donate:btc:start -->
+**Bitcoin (BTC):** `bc1q2t9hdrt80ud74na4rhrjnt80v66046et9nzvw6`  
+[View on mempool.space](https://mempool.space/address/bc1q2t9hdrt80ud74na4rhrjnt80v66046et9nzvw6)
+<!-- donate:btc:end -->
+<!-- donate:eth:start -->
+**Ethereum (ETH):** `0x3468C56D3e137668978b67c5397Ebfe04cFA60BA`  
+[View on Etherscan](https://etherscan.io/address/0x3468C56D3e137668978b67c5397Ebfe04cFA60BA)
+<!-- donate:eth:end -->
+<!-- donate:sol:start -->
+**Solana (SOL):** `E1Nb74ddYtz1u6ZqfYnQ6picRZbYsKJL4H5ZCRiXnS6W`  
+[View on Solscan](https://solscan.io/account/E1Nb74ddYtz1u6ZqfYnQ6picRZbYsKJL4H5ZCRiXnS6W)
+<!-- donate:sol:end -->
 <!-- donate:end -->
 
 ## License
